@@ -1,0 +1,225 @@
+[
+  {
+    "category": "pubGov",
+    "year": 2018,
+    "title": "한-중 헬스케어 ICT 기업상담회",
+    "title_en": null,
+    "institution": "정보통신산업진흥원",
+    "outline": {
+      "dateText": "2018.03.16.(금)",
+      "startDate": "2018-03-16",
+      "endDate": "2018-03-16",
+      "location": "코엑스 3층",
+      "target": "과학기술정보통신부 정보통신산업정책관, 정보통신산업진흥원 글로벌ICT사업본부장, KIC중국 센터장, 헬스케어·ICT기업, 난성의료기기산업협회장, 주한중국대사관 참사관",
+      "organizer": "정보통신산업진흥원 / KIC중국 / 후난성의료기기산업협회",
+      "topic": [
+        "한국 헬스케어‧ICT기업과 중국 투자자간 협력·투자 네트워킹 운영 지원"
+      ]
+    },
+    "outline_en": {
+      "dateText": "2018.03.16.(Fri)",
+      "startDate": "2018-03-16",
+      "endDate": "2018-03-16",
+      "location": "COEX 3rd floor",
+      "target": "Information and Communication Industry Policy Officer of the Ministry of Science and ICT, Global ICT Business Headquarters of the Information and Communication Industry Promotion Agency, KIC China Center Director, Healthcare and ICT Enterprises, Nansung Medical Device Industry Association President, and China Embassy in Korea",
+      "organizer": "National IT Industry Promotion Agency / KIC China / Hunan Medical Device Industry Association",
+      "topic": [
+        "Support for cooperation and investment networking operations between Korean healthcare and ICT companies and Chinese investors"
+      ]
+    },
+    "images": [
+      307,
+      308,
+      309,
+      310,
+      311,
+      312,
+      313,
+      314,
+      315,
+      316,
+      317,
+      318
+    ],
+    "is_upload_Retry_ko": false,
+    "is_upload_Retry_en": true
+  },
+  {
+    "category": "pubGov",
+    "year": 2019,
+    "title": "유니세프 벨기에 국빈 초청행사",
+    "title_en": null,
+    "institution": "유니세프한국위원회",
+    "outline": {
+      "dateText": "2019.03.27.(수)",
+      "startDate": "2019-03-27",
+      "endDate": "2019-03-27",
+      "location": "유니세프한국위원회",
+      "organizer": "유니세프한국위원회",
+      "topic": [
+        "벨기에 왕비  초청행사 운영 지원",
+        "한국 청소년들과의 간담회 참석 운영 지원"
+      ]
+    },
+    "outline_en": {
+      "dateText": "2019.03.27.(Wed)",
+      "startDate": "2019-03-27",
+      "endDate": "2019-03-27",
+      "location": "The Korean Committee for UNICEF",
+      "Host/Suervisor": "The Korean Committee for UNICEF",
+      "topic": [
+        "Support for the operation of invitation events for the Queen of Belgium",
+        "Support for attending meetings with Korean teenagers"
+      ]
+    },
+    "images": [
+      366,
+      367,
+      368,
+      369,
+      370
+    ],
+    "is_upload_Retry_ko": false,
+    "is_upload_Retry_en": true
+  },
+  {
+    "category": "pubGov",
+    "year": 2019,
+    "title": "2019년 언론인 대상 기상과학 이해와 제고",
+    "title_en": "2019 Meteorological Science Understanding Enhancing for Journalists",
+    "institution": "기상청",
+    "outline": {
+      "dateText": "2019년 1월 ~ 12월",
+      "startDate": "2019-01",
+      "endDate": "2019-12",
+      "location": "기상청 및 취재현장",
+      "organizer": "기상청",
+      "topic": [
+        "언론인 기상강좌 운영",
+        "기상정책 현장취재",
+        "기상정책 설명회",
+        "주요 정책 관련 브리핑 운영",
+        "기상 이슈에 대한 열린 소통 운영"
+      ]
+    },
+    "outline_en": {
+      "dateText": "January-December 2019",
+      "startDate": "2019-01",
+      "endDate": "2019-12",
+      "location": "Meteorological Administration and media places",
+      "organizer": "Korea Meteorological Administration",
+      "Major programs": [
+        "Operation of weather lecture for understanding of weather business",
+        "Meteorological policy on-site coverage for weather issue publicity",
+        "Weather policy briefing session",
+        "Seasonal forecast, risk weather, major policy-related policy briefing",
+        "Open communication about various weather issues"
+      ]
+    },
+    "images": [
+      345,
+      346,
+      347,
+      348,
+      349,
+      350,
+      351,
+      352,
+      353,
+      354,
+      787,
+      355,
+      356,
+      357,
+      358
+    ],
+    "is_upload_Retry_ko": false,
+    "is_upload_Retry_en": true
+  },
+  {
+    "category": "pubGov",
+    "year": 2019,
+    "title": "2019년 국제교휵훈련 초청연수 ",
+    "title_en": "2019 International Education and Training (Invited Training) Program ",
+    "institution": "기상청",
+    "outline": {
+      "dateText": "2019.06.24.(월)~07.13.(금)",
+      "startDate": "2019-06-24",
+      "endDate": "2019-07-13",
+      "location": "메리어트이그제큐티브아파트먼트 서울 (여의도)",
+      "organizer": "기상청",
+      "topic": [
+        "기상자료(수치, 위성, 레이더) 활용 실습",
+        "예보관 훈련 실습",
+        "영향예보",
+        "선진기상기술",
+        "현장견학(Study/Vist)",
+        "Action Plan/Building"
+      ]
+    },
+    "outline_en": {
+      "dateText": "June 24 (Monday) ~ July 13 (Friday) , 2019",
+      "startDate": "2019-06-24",
+      "endDate": "2019-07-13",
+      "location": "Marriott Executive Apartments Seoul (Yeouido)",
+      "organizer": "Korea Meteorological Administration",
+      "Major Program/ Content": [
+        "Practice on the use of weather data (numerical, satellite, radar)",
+        "forecaster training practice",
+        "Impact forecast",
+        "Advanced weather technology",
+        "Field Trip (Study/Vist)",
+        "Action Plan/Building"
+      ]
+    },
+    "images": [
+      341,
+      342,
+      343,
+      344
+    ],
+    "is_upload_Retry_ko": false,
+    "is_upload_Retry_en": true
+  },
+  {
+    "category": "pubGov",
+    "year": 2019,
+    "title": "2019년 개도국 정보통신방송정문자 초청연수",
+    "title_en": null,
+    "institution": "정보통신산업진흥원",
+    "outline": {
+      "dateText": "2019.05.19.(일)~11.28.(목)",
+      "startDate": "2019-05-19",
+      "endDate": "2019-11-28",
+      "location": "노보텔 앰배서더 강남 호텔, 머큐어 앰배서더 강남 호텔 / 인터콘티넨탈 방콕 호텔",
+      "target": "OECD 개발원조위원회 ODA 대상국의 ICT 분야 공무원",
+      "organizer": "정보통신산업진흥원",
+      "topic": [
+        "총 6회의 연수과정 운영",
+        "태국 현지 워크숍"
+      ]
+    },
+    "outline_en": {
+      "dateText": "05.19 (Mon) ~ 11.28 (Thu), 2019",
+      "startDate": "2019-05-19",
+      "endDate": "2019-11-28",
+      "location": "Novotel Ambasador Gangnam Hotel, Mercure Ambassador Gangnam Hotel / Intercontinental Bangkok Hotel",
+      "target": "Public officials in the ICT field of the OECD Development Assistance Committee ODA target country",
+      "organizer": "NIPA(National IT Industry Promotion Agency)",
+      "topic": [
+        "Operation of 6 training courses in total",
+        "a workshop in Thailand"
+      ]
+    },
+    "images": [
+      325,
+      326,
+      327,
+      328,
+      329,
+      330
+    ],
+    "is_upload_Retry_ko": false,
+    "is_upload_Retry_en": true
+  }
+]
