@@ -2,33 +2,66 @@ import requests
 import json
 from typing import Dict, Any
 from deep_translator import GoogleTranslator
+from pathlib import Path
 from dotenv import load_dotenv
 import os
+import re
+import urllib.parse
 
-prod_token = '8f134d46255641e1d19204e4bd40a0287140fda43e8dbfaf9f30d8d3bd2b2c7b33e03f2dfab63cfcd6ba85617c7aa54545b37971c4e3e00818da1454671b11767980182448598c11e0cd8d6d387c679a09da6ec5cf102b1ff16c628375ff926849b50fd3a470e50ca7a1d2fcfa69b40f86c7178dac616aac38d494ff1fd3fd36'
-local_token = "8391a93fa00b44be7374a80c96d265cb4051ae4b670ef93760ce509f754821989056743ab6251631519f97483b4958e468a7bd89de6b52ea653f52f8b409adf5856e42e33e518914faf7dc41269071488db502e69accf13c63c259fcdf404437599314017c3d0e39f288fbc0c8a9c4b3f70426e7407252caf0d93e2c04ed33af"
-prod_STRAPI_HOST = 'https://cmcstrapi-production.up.railway.app'
-local_STRAPI_HOST = 'http://localhost:1337'
-
-headers = {
-    'Content-Type': 'application/json',
-    'Authorization': prod_token
-}
-API_HOST = prod_STRAPI_HOST
 fail_items = []
 is_create_Retry = False
 title = ''
 id = 0
 
+def firebase_url_converter(html):
+    # 1단계: 이스케이프 문자 정규화
+    # 1단계: 모든 이스케이프 슬래시 정규화
+    normalized = re.sub(r'\\+/', '/', html).lower()
+
+    # 2단계: 강화된 정규식 패턴 (Raw 문자열 사용)
+    pattern = r'''
+    (src\s*=\s*["'])      
+    (https?:)?            
+    (//)?                 
+    (www\.)?              
+    (culturemarketing\.co\.kr/)  
+    ([\w%\/\._-]+)        
+    (["'])                
+    '''
+    # 그룹1: src 속성 시작
+    # 그룹2: 프로토콜
+    # 그룹3: 슬래시
+    # 그룹4: www
+    # 그룹5: 고정 경로
+    # 그룹6: 파일 경로
+    # 그룹7: 속성 닫기
+
+    def replace_url(match):
+        # 그룹 인덱스 재설정
+        prefix = match.group(1)
+        file_path = match.group(6)  # 실제 경로는 그룹6
+        suffix = match.group(7)
+
+        # 경로 인코딩 검증
+        if not file_path:
+            return match.group(0)  # 매칭 실패시 원본 반환
+
+        encoded = file_path.replace('/', '%2F')
+        return f'{prefix}https://firebasestorage.googleapis.com/v0/b/store-892ea.firebasestorage.app/o/{encoded}?alt=media{suffix}'
+
+    return re.sub(pattern, replace_url, normalized, flags=re.X | re.IGNORECASE)
 
 
 def load_environment(env: str = 'prod'):
     """환경별 설정 파일 로드"""
+    current_dir = Path(__file__).resolve().parent
+    root_dir = current_dir.parent
+    env_path = root_dir / f'.env.{env}'
     env_file = f'.env.{env}'
-    if not os.path.exists(env_file):
+    if not env_path.exists():
         raise FileNotFoundError(f"{env_file} not found")
 
-    load_dotenv(env_file)
+    load_dotenv(str(env_path))
     return {
         'host': os.getenv('STRAPI_HOST'),
         'token': os.getenv('API_TOKEN')
@@ -61,8 +94,9 @@ def process_outline(outline: Dict[str, Any]) -> Dict[str, Any]:
 def create_notice(data: Dict[str, Any], locale: str = None) -> Dict[str, Any]:
     """포트폴리오 업로드 공통 함수"""
     global is_create_Retry
-    url = f"{API_HOST}/api/notices"
+    url = f"{API_HOST}{API_URL}"
 
+    response = None
     try:
         response = requests.post(
             url,
@@ -73,10 +107,10 @@ def create_notice(data: Dict[str, Any], locale: str = None) -> Dict[str, Any]:
             response.raise_for_status()
             return response.json()
         else:
-            raise Exception(f"Response was invalid: {response}")
+            raise Exception(f"Response was invalid:")
     except Exception as e:
         is_create_Retry = True
-        print(f"⚠️ 업로드 실패: id:{id} // {response}")
+        print(f"⚠️ 업로드 실패: id:{id} // {data.title}")
         raise
 
 
@@ -92,15 +126,15 @@ def process_and_createAPI(json_items: list):
             if '[' in title and ']' in title:
                 category_start = title.find('[')
                 category_end = title.find(']')
-                category = title[category_start + 1:category_end]
-                event_title = title[category_end + 1:].strip()
+                category = title[(category_start + 1):category_end]
+                event_title = title[(category_end + 1):].strip()
             else:
                 category = None
                 event_title = title.strip()
 
             req_data = {
                 'title': event_title,
-                'content': item['wr_content'],
+                'content': firebase_url_converter(item['wr_content']),
                 'category': category,
                 'ip': item['wr_ip'],
                 'view_cnt': item['wr_hit'],
@@ -121,6 +155,16 @@ def process_and_createAPI(json_items: list):
 
 # 실행 예시
 if __name__ == "__main__":
+    env = 'local'
+    # env = os.getenv('ENV', 'prod')  # ENV 환경변수로 설정 가능
+    config = load_environment(env)
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': f"Bearer {config['token']}"
+    }
+    API_HOST = config['host']
+    API_URL = '/api/notices'
+
     with open('g5_write_notice_202502132315.json', 'r', encoding='utf-8') as f:
         notice_data = json.load(f)
     process_and_createAPI(notice_data)
